@@ -3,20 +3,20 @@ import React from 'react';
 function Clock(props) {
   return (
     <div>
-      <h1>현재시간: {new Date().toLocaleTimeString()}</h1>
-      <h2>
-        파리 시간:{' '}
-        {new Date().toLocaleString('ko', { timeZone: 'Europe/Paris' })}
-      </h2>
-      <h2>
-        서울 시간: {new Date().toLocaleString('ko', { timeZone: 'Asia/Seoul' })}
-      </h2>
-      <h2>
-        뉴욕 시간:{' '}
-        {new Date().toLocaleString('ko', { timeZone: 'America/New_York' })}
-      </h2>
+      <h1>{props.name} 시간</h1>
+      <h2>{new Date().toLocaleTimeString('ko-KR', props.options)}</h2>
     </div>
   );
 }
 
-export default Clock;
+function WorldTime() {
+  return (
+    <div>
+      <Clock name="파리" options={{ timeZone: 'Europe/Paris' }} />
+      <Clock name="서울" options={{ timeZone: 'Asia/Seoul' }} />
+      <Clock name="뉴욕" options={{ timeZone: 'America/New_York' }} />
+    </div>
+  );
+}
+
+export default WorldTime;
