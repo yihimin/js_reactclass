@@ -2,13 +2,13 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import reportWebVitals from './reportWebVitals';
-import WorldTime from './components/Clock';
+import CommentList from './components/CommnetList';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 setInterval(() => {
   root.render(
     <React.StrictMode>
-      <WorldTime />
+      <CommentList />
     </React.StrictMode>,
   );
 }, 1000);
