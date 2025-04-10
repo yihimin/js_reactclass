@@ -7,15 +7,22 @@ function Counter(props) {
 
   return (
     <div>
-      <p>총 {count}번 클릭했습니다.</p>
+      <p>{count}</p>
       <button
         onClick={() => {
-          //count++;
+          setCount(count - 1); // 상태를 업데이트!
+          console.log(count); // 콘솔에는 이전 값이 찍히는 점 주의!
+        }}
+      >
+        -1
+      </button>
+      <button
+        onClick={() => {
           setCount(count + 1); // 상태를 업데이트!
           console.log(count); // 콘솔에는 이전 값이 찍히는 점 주의!
         }}
       >
-        클릭
+        +1
       </button>
     </div>
   );
