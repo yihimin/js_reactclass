@@ -1,9 +1,9 @@
 import styled from 'styled-components';
 
-const Button = style.button`
-    color : ${(props) => (props.dark ? 'white' : 'black')};
-    background : ${(props) => (props.dark ? 'black' : 'white')};
-    border: 1px solid black;
+const Button = styled.button`
+  color: ${(props) => (props.dark ? 'white' : 'black')};
+  background: ${(props) => (props.dark ? 'black' : 'white')};
+  border: 1px solid black;
 `;
 
 function Sample(props) {
