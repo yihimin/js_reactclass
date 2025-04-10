@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import './style.css';
 
 export default function TodoList() {
   const [input, setInput] = useState('');
@@ -15,7 +16,7 @@ export default function TodoList() {
     setInput('');
   };
 
-  const deleteTodo = (indexToDelete) => {
+  const removeTodo = (indexToDelete) => {
     setTodos(todos.filter((_, idx) => idx !== indexToDelete));
   };
 
@@ -34,7 +35,7 @@ export default function TodoList() {
         {todos.map((todo, index) => (
           <li key={index} className="todo-item">
             {todo}
-            <button onClick={() => deleteTodo(index)}>삭제</button>
+            <button onClick={() => removeTodo(index)}>삭제</button>
           </li>
         ))}
       </ul>
