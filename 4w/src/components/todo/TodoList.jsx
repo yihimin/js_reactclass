@@ -1,5 +1,14 @@
 import { useState } from 'react';
-import './style.css';
+import {
+  Container,
+  Title,
+  InputContainer,
+  Input,
+  AddButton,
+  TodoList as StyledList,
+  TodoItem,
+  DeleteButton,
+} from './StyledComponents';
 
 export default function TodoList() {
   const [input, setInput] = useState('');
@@ -16,29 +25,29 @@ export default function TodoList() {
     setInput('');
   };
 
-  const removeTodo = (indexToDelete) => {
-    setTodos(todos.filter((_, idx) => idx !== indexToDelete));
+  const removeTodo = (index) => {
+    setTodos(todos.filter((_, idx) => idx !== index));
   };
 
   return (
-    <div className="container">
-      <h2>할 일 목록</h2>
-      <div className="input-container">
-        <input
+    <Container>
+      <Title>할 일 목록</Title>
+      <InputContainer>
+        <Input
           type="text"
           value={input}
           onChange={(e) => changeInput(e.target.value)}
         />
-        <button onClick={addTodo}>추가</button>
-      </div>
-      <ul className="todo-list">
+        <AddButton onClick={addTodo}>추가</AddButton>
+      </InputContainer>
+      <StyledList>
         {todos.map((todo, index) => (
-          <li key={index} className="todo-item">
+          <TodoItem key={index}>
             {todo}
-            <button onClick={() => removeTodo(index)}>삭제</button>
-          </li>
+            <DeleteButton onClick={() => removeTodo(index)}>삭제</DeleteButton>
+          </TodoItem>
         ))}
-      </ul>
-    </div>
+      </StyledList>
+    </Container>
   );
 }
