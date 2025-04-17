@@ -3,7 +3,7 @@ import useCounter from './hook/useCounter';
 
 const MAX_CAPACITY = 10;
 
-function Accomodate(props) {
+function Accommodate(props) {
   // 전체 정원 초과 여부 상태
   const [isFull, setIsFull] = useState(false);
   // count 상태와 증가/감소 함수 받아오기
@@ -32,4 +32,4 @@ function Accomodate(props) {
   );
 }
 
-export default Accomodate;
+export default Accommodate;
