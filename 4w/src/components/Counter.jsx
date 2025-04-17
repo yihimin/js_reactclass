@@ -1,9 +1,14 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 function Counter(props) {
   //let count = 0;
   // state 선언
   const [count, setCount] = useState(0);
+
+  useEffect(() => {
+    document.title = `${count}번 클릭`;
+    console.log(`${count}번 클릭`);
+  }, [count]);
 
   return (
     <div>
