@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import useCounter from './useCounter';
+import useCounter from './hook/useCounter';
 
 const MAX_CAPACITY = 10;
 
