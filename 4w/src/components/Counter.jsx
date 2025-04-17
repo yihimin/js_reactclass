@@ -18,11 +18,12 @@ function Counter(props) {
       </button>
       <button
         onClick={() => {
-          setCount(count + 1); // 상태를 업데이트!
+          setCount((prev) => prev + 1);
+          setCount((prev) => prev + 1); // 상태를 업데이트!
           console.log(count); // 콘솔에는 이전 값이 찍히는 점 주의!
         }}
       >
-        +1
+        +2
       </button>
     </div>
   );
