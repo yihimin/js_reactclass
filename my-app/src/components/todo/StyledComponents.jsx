@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 export const Container = styled.div`
   max-width: 400px;
@@ -64,4 +64,11 @@ export const DeleteButton = styled.button`
   &:hover {
     font-weight: bold;
   }
+`;
+
+export const TodoText = styled.span`
+  flex: 1;
+  margin-left: 8px;
+  text-decoration: ${({ checked }) => (checked ? "line-through" : "none")};
+  color: ${({ checked }) => (checked ? "#888" : "black")};
 `;
