@@ -1,9 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import NameForm from './components/NameForm';
+import SignUp from './components/SignUp';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <NameForm />
+    <SignUp />
   </React.StrictMode>,
 );
