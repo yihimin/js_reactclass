@@ -1,10 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import NumberList from './components/NumberList';
-
+import NameForm from './components/NameForm';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <NumberList />
+    <NameForm />
   </React.StrictMode>,
 );
