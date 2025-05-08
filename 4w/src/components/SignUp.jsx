@@ -31,6 +31,7 @@ export default function SignUp(props) {
           <option value="남자">남자</option>
         </select>
       </label>
+      <br />
       <button type="submit">제출</button>
     </form>
   );
