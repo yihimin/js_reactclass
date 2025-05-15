@@ -1,10 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import ContextApi from './components/ContextApi';
+import DarkOrLight from './components/DarkOrLight';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <ContextApi />
+    <DarkOrLight />
   </React.StrictMode>,
 );
