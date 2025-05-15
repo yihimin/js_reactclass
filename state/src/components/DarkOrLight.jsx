@@ -2,8 +2,9 @@ import { useState, useCallback } from 'react';
 import ThemeContext from './ThemeContext';
 import MainContent from './MainContent';
 
-function DarkOrLight(props) {
+function DarkOrLight() {
   const [theme, setTheme] = useState('light');
+  const [language, setLanguage] = useState('kor');
 
   const toggleTheme = useCallback(() => {
     if (theme === 'light') {
@@ -14,7 +15,9 @@ function DarkOrLight(props) {
   }, [theme]);
 
   return (
-    <ThemeContext.Provider value={{ theme, toggleTheme }}>
+    <ThemeContext.Provider
+      value={{ theme, toggleTheme, language, setLanguage }}
+    >
       <MainContent />
     </ThemeContext.Provider>
   );
