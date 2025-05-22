@@ -1,18 +1,18 @@
 import { useParams } from 'react-router-dom';
 
+const productData = {
+  books: {
+    101: { name: '리액트 입문', price: 18000 },
+    102: { name: '자바스크립트 입문', price: 22000 },
+  },
+  electronics: {
+    201: { name: '마우스', price: 25000 },
+    202: { name: '키보드', price: 55000 },
+  },
+};
+
 export default function Product() {
   const { category, id } = useParams();
-  const productData = {
-    books: {
-      101: { name: '리액트 입문', price: 18000 },
-      102: { name: '자바스크립트 입문', price: 22000 },
-    },
-    electronics: {
-      201: { name: '마우스', price: 25000 },
-      202: { name: '키보드', price: 55000 },
-    },
-  };
-
   const product = productData[category]?.[id];
 
   return (
