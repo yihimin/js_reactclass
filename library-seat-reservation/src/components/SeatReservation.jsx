@@ -3,14 +3,17 @@ import styled from 'styled-components';
 
 const Container = styled.div`
   padding: 20px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 `;
 
 const SeatMap = styled.div`
   position: relative;
   width: 600px;
   height: 400px;
-  border: 1px solid #ccc;
+  border: 2px solid #ddd;
+  border-radius: 12px;
   margin-bottom: 20px;
+  background-color: #f9f9f9;
 `;
 
 const SeatWrapper = styled.div`
@@ -28,15 +31,21 @@ const Seat = styled.div`
     props.reserved
       ? `linear-gradient(to right, purple ${props.width}%, #4caf50 ${props.width}%)`
       : '#4caf50'};
-  color: black;
+  color: white;
   font-weight: bold;
-  border-radius: 6px;
+  border-radius: 10px;
   display: flex;
   justify-content: center;
   align-items: center;
   cursor: pointer;
   position: relative;
-  border: 2px solid #666;
+  border: 2px solid #444;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  transition: transform 0.2s ease;
+
+  &:hover {
+    transform: scale(1.05);
+  }
 `;
 
 const Modal = styled.div`
@@ -44,10 +53,12 @@ const Modal = styled.div`
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background: white;
-  border: 1px solid #ccc;
-  padding: 20px;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  padding: 24px;
   z-index: 10;
+  min-width: 300px;
 `;
 
 const Backdrop = styled.div`
@@ -56,8 +67,33 @@ const Backdrop = styled.div`
   left: 0;
   width: 100vw;
   height: 100vh;
-  background: rgba(0, 0, 0, 0.3);
+  background: rgba(0, 0, 0, 0.4);
   z-index: 5;
+`;
+
+const Input = styled.input`
+  width: 100%;
+  padding: 8px;
+  margin-top: 8px;
+  margin-bottom: 12px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+`;
+
+const Button = styled.button`
+  padding: 10px 16px;
+  margin-right: 8px;
+  border: none;
+  border-radius: 6px;
+  background-color: #4caf50;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+
+  &:hover {
+    background-color: #43a047;
+  }
 `;
 
 const initialSeats = [
@@ -71,6 +107,11 @@ const initialSeats = [
   { id: 8, x: 330, y: 260, seatNumber: 'B3', reserved: false, timer: 0 },
   { id: 9, x: 400, y: 260, seatNumber: 'B4', reserved: false, timer: 0 },
   { id: 10, x: 470, y: 260, seatNumber: 'B5', reserved: false, timer: 0 },
+  { id: 11, x: 190, y: 330, seatNumber: 'B1', reserved: false, timer: 0 },
+  { id: 12, x: 260, y: 330, seatNumber: 'B2', reserved: false, timer: 0 },
+  { id: 13, x: 330, y: 330, seatNumber: 'B3', reserved: false, timer: 0 },
+  { id: 14, x: 400, y: 330, seatNumber: 'B4', reserved: false, timer: 0 },
+  { id: 15, x: 470, y: 330, seatNumber: 'B5', reserved: false, timer: 0 },
 ];
 
 export default function SeatReservation() {
@@ -155,25 +196,23 @@ export default function SeatReservation() {
               {selectedSeat.reserved ? '예약 취소' : '좌석 예약'} -{' '}
               {selectedSeat.seatNumber}
             </h3>
-            <input
+            <Input
               placeholder="아이디"
               value={id}
               onChange={(e) => setId(e.target.value)}
             />
-            <br />
-            <input
+            <Input
               type="password"
               placeholder="비밀번호"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
             />
-            <br />
-            <button
+            <Button
               onClick={selectedSeat.reserved ? handleCancel : handleReserve}
             >
               {selectedSeat.reserved ? '취소하기' : '예약하기'}
-            </button>
-            <button onClick={closeModal}>닫기</button>
+            </Button>
+            <Button onClick={closeModal}>닫기</Button>
           </Modal>
         </>
       )}
