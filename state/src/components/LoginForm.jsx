@@ -6,7 +6,17 @@ export default function LoginForm() {
   const [result, setResult] = useState(null);
 
   const handleLogin = () => {
-    axios.post('http://localhost:3001/login');
+    axios
+      .post('http://localhost:3001/login', {
+        id: id,
+        password: password,
+      })
+      .then((response) => {
+        setResult(response.data.message);
+      })
+      .catch((error) => {
+        setResult(error.response.data.message);
+      });
   };
 
   return (
